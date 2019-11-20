@@ -2,7 +2,7 @@ const User = require('./user')
 const Hunt = require('./hunt')
 const HuntObject = require('./huntObject')
 const Location = require('./location')
-const VisitedLocation = require('./visitedLocation')
+const HuntLocation = require('./huntLocation')
 
 /**
  * If we had any associations to make, this would be a great place to put them!
@@ -20,8 +20,8 @@ Location.hasOne(Hunt)
 HuntObject.hasMany(Location)
 Location.hasOne(HuntObject)
 
-User.belongsToMany(Location, {through: 'VisitedLocation'})
-Location.belongsToMany(User, {through: 'VisitedLocation'})
+User.belongsToMany(Location, {through: 'HuntLocation'})
+Location.belongsToMany(User, {through: 'HuntLocation'})
 
 /**
  * We'll export all of our models here, so that any time a module needs a model,
@@ -34,5 +34,5 @@ module.exports = {
   Hunt,
   HuntObject,
   Location,
-  VisitedLocation
+  HuntLocation
 }

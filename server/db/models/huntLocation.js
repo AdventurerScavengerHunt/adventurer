@@ -1,11 +1,11 @@
 const Sequelize = require('sequelize')
 const db = require('../db')
 
-const VisitedLocation = db.define('visitedLocation', {
+const HuntLocation = db.define('huntLocation', {
   visited: {
     type: Sequelize.BOOLEAN,
     defaultValue: false
   }
 })
 
-module.exports = VisitedLocation
+module.exports = HuntLocation
