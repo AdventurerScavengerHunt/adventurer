@@ -73,7 +73,7 @@ async function seed() {
     HuntLocation.create({
       visited: false,
       userId: 1,
-      locationId: 1
+      locationId: 2
     }),
     HuntLocation.create({
       visited: false,
