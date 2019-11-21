@@ -12,7 +12,6 @@ const HuntLocation = require('./huntLocation')
  */
 
 User.belongsTo(Hunt)
-// Hunt.hasMany(User)
 
 Location.belongsTo(Hunt)
 Hunt.hasMany(Location)
