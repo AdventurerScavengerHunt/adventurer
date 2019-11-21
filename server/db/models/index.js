@@ -11,17 +11,16 @@ const HuntLocation = require('./huntLocation')
  *    BlogPost.belongsTo(User)
  */
 
-User.hasOne(Hunt)
-Hunt.hasMany(User)
+User.belongsTo(Hunt)
 
+Location.belongsTo(Hunt)
 Hunt.hasMany(Location)
-Location.hasOne(Hunt)
 
+Location.belongsTo(HuntObject)
 HuntObject.hasMany(Location)
-Location.hasOne(HuntObject)
 
-User.belongsToMany(Location, {through: 'HuntLocation'})
-Location.belongsToMany(User, {through: 'HuntLocation'})
+User.belongsToMany(Location, {through: 'huntLocation'})
+Location.belongsToMany(User, {through: 'huntLocation'})
 
 /**
  * We'll export all of our models here, so that any time a module needs a model,
