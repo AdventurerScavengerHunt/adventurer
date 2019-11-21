@@ -11,14 +11,14 @@ const HuntLocation = require('./huntLocation')
  *    BlogPost.belongsTo(User)
  */
 
-User.hasOne(Hunt)
-Hunt.hasMany(User)
+User.belongsTo(Hunt)
+// Hunt.hasMany(User)
 
+Location.belongsTo(Hunt)
 Hunt.hasMany(Location)
-Location.hasOne(Hunt)
 
+Location.belongsTo(HuntObject)
 HuntObject.hasMany(Location)
-Location.hasOne(HuntObject)
 
 User.belongsToMany(Location, {through: 'HuntLocation'})
 Location.belongsToMany(User, {through: 'HuntLocation'})

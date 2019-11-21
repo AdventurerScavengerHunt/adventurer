@@ -1,18 +1,98 @@
 'use strict'
 
+//please create database called adventurer
+
 const db = require('../server/db')
-const {User} = require('../server/db/models')
+const {
+  User,
+  Hunt,
+  HuntLocation,
+  Location,
+  HuntObject
+} = require('../server/db/models')
 
 async function seed() {
   await db.sync({force: true})
   console.log('db synced!')
 
   const users = await Promise.all([
-    User.create({email: 'cody@email.com', password: '123'}),
-    User.create({email: 'murphy@email.com', password: '123'})
+    User.create({
+      email: 'clark@clark.com',
+      username: 'clark',
+      password: '1234'
+    }),
+    User.create({
+      email: 'bo@bo.com',
+      username: 'bo',
+      password: '1234'
+    })
+  ])
+  const hunts = await Promise.all([
+    Hunt.create({
+      name: 'Hunt Bernie'
+    }),
+    Hunt.create({
+      name: 'Hunt Treasure'
+    })
+  ])
+  const locations = await Promise.all([
+    Location.create({
+      latitude: 40.705289,
+      longitude: 74.009205,
+      riddle: 'We go to school here!'
+    }),
+    Location.create({
+      latitude: 40.705381,
+      longitude: 74.008427,
+      riddle: 'Have some sushi'
+    }),
+    Location.create({
+      latitude: 40.704566,
+      longitude: 74.009894,
+      riddle: 'Get fancy french pastry'
+    }),
+    Location.create({
+      latitude: 40.705528,
+      longitude: 74.010095,
+      riddle: 'Go to market'
+    })
+  ])
+  const huntObjects = await Promise.all([
+    HuntObject.create({
+      name: 'Bernie head',
+      source: 'http://www.gstatic.com/tv/thumb/persons/547987/547987_v9_ba.jpg'
+    })
   ])
 
-  console.log(`seeded ${users.length} users`)
+  const huntLocations = await Promise.all([
+    HuntLocation.create({
+      visited: false,
+      userId: 1,
+      locationId: 1
+    }),
+    HuntLocation.create({
+      visited: false,
+      userId: 1,
+      locationId: 1
+    }),
+    HuntLocation.create({
+      visited: false,
+      userId: 2,
+      locationId: 3
+    }),
+    HuntLocation.create({
+      visited: false,
+      userId: 2,
+      locationId: 4
+    })
+  ])
+  console.log(
+    `seeded ${users.length} users, ${locations.length} locations, ${
+      hunts.length
+    } hunts, ${huntObjects.length} objects, and ${
+      huntLocations.length
+    } huntLocations`
+  )
   console.log(`seeded successfully`)
 }
 
