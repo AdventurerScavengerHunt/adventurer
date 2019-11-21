@@ -8,7 +8,6 @@ router.get('/:userId', async (req, res, next) => {
   try {
     const userId = req.params.userId
     const currentUser = await User.findByPk(userId)
-    console.log(currentUser)
     const currentHuntLocations = await currentUser.getLocations()
     res.json(currentHuntLocations)
   } catch (error) {
@@ -26,14 +25,9 @@ router.post('/:userId/:huntId', async (req, res, next) => {
 
     await currentUser.addLocations(locations)
     const currentHuntLocations = await currentUser.getLocations()
-    await User.update(
-      {
-        huntId
-      },
-      {
-        where: {id: userId}
-      }
-    )
+    await currentUser.update({
+      huntId
+    })
     res.status(201).send(currentHuntLocations)
   } catch (error) {
     next(error)
