@@ -24,7 +24,7 @@ router.post('/:userId/:huntId', async (req, res, next) => {
     const locations = await currentHunt.getLocations()
 
     await currentUser.addLocations(locations)
-    const currentHuntLocations = await currentUser.getLocations()
+    const currentHuntLocations = await currentUser.getLocations({order: ['id']})
     await currentUser.update({
       huntId
     })
