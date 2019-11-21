@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const {HuntLocation, User, Hunt} = require('../db/models')
+const {HuntLocation, User, Hunt, Location} = require('../db/models')
 const Sequelize = require('sequelize')
 
 module.exports = router
@@ -35,6 +35,37 @@ router.post('/:userId/:huntId', async (req, res, next) => {
       }
     )
     res.status(201).send(currentHuntLocations)
+  } catch (error) {
+    next(error)
+  }
+})
+
+router.put('/:userId/:locationId', async (req, res, next) => {
+  try {
+    const userId = req.params.userId
+    const locationId = req.params.locationId
+    await HuntLocation.update(
+      {
+        visited: true
+      },
+      {
+        where: {userId: userId, locationId: locationId}
+      }
+    )
+    res.sendStatus(200)
+  } catch (error) {
+    next(error)
+  }
+})
+
+router.delete('/:userId/:locationId', async (req, res, next) => {
+  try {
+    const userId = req.params.userId
+    const locationId = req.params.locationId
+    const currentUser = await User.findByPk(userId)
+    const currentLocation = await Location.findByPk(locationId)
+    await currentUser.removeLocation(currentLocation)
+    res.sendStatus(204)
   } catch (error) {
     next(error)
   }
