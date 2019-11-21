@@ -15,18 +15,6 @@ async function seed() {
   await db.sync({force: true})
   console.log('db synced!')
 
-  const users = await Promise.all([
-    User.create({
-      email: 'clark@clark.com',
-      username: 'clark',
-      password: '1234'
-    }),
-    User.create({
-      email: 'bo@bo.com',
-      username: 'bo',
-      password: '1234'
-    })
-  ])
   const hunts = await Promise.all([
     Hunt.create({
       name: 'Hunt Bernie'
@@ -35,26 +23,44 @@ async function seed() {
       name: 'Hunt Treasure'
     })
   ])
+  const users = await Promise.all([
+    User.create({
+      email: 'clark@clark.com',
+      username: 'clark',
+      password: '1234',
+      huntId: 1
+    }),
+    User.create({
+      email: 'bo@bo.com',
+      username: 'bo',
+      password: '1234',
+      huntId: 2
+    })
+  ])
   const locations = await Promise.all([
     Location.create({
       latitude: 40.705289,
       longitude: 74.009205,
-      riddle: 'We go to school here!'
+      riddle: 'We go to school here!',
+      huntId: 1
     }),
     Location.create({
       latitude: 40.705381,
       longitude: 74.008427,
-      riddle: 'Have some sushi'
+      riddle: 'Have some sushi',
+      huntId: 1
     }),
     Location.create({
       latitude: 40.704566,
       longitude: 74.009894,
-      riddle: 'Get fancy french pastry'
+      riddle: 'Get fancy french pastry',
+      huntId: 2
     }),
     Location.create({
       latitude: 40.705528,
       longitude: 74.010095,
-      riddle: 'Go to market'
+      riddle: 'Go to market',
+      huntId: 2
     })
   ])
   const huntObjects = await Promise.all([
