@@ -8,7 +8,7 @@ router.get('/:userId', async (req, res, next) => {
   try {
     const userId = req.params.userId
     const currentUser = await User.findByPk(userId)
-    const currentHuntLocations = await currentUser.getLocations()
+    const currentHuntLocations = await currentUser.getLocations({order: ['id']})
     res.json(currentHuntLocations)
   } catch (error) {
     next(error)
