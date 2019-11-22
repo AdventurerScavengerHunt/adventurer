@@ -15,14 +15,16 @@ install:
 before_script:
   - psql -c 'create database "adventurer-test";' -U postgres # remember to change this name if you change it elsewhere (e.g. package.json)
 script:
-  - npm test             # test the code
+  - npm test # test the code
   - npm run build-client # make the bundle
-
-# before_deploy:
-#   - rm -rf node_modules # omit from the tarball, since we skip cleanup
-# deploy:
-#   skip_cleanup: true # prevents travis from deleting the build
-#   provider: heroku
-#   app: YOUR-HEROKU-APP-NAME-HERE # see README
-#   api_key:
-#     secure: YOUR-***ENCRYPTED***-API-KEY-HERE # see README
+before_deploy: # omit node_modules, since we set skip_cleanup below
+  - rm -rf node_modules
+deploy: # see README for details on these keys
+  # prevents travis from deleting the build
+  skip_cleanup: true
+  provider: heroku
+  # app should be your heroku app name; see README
+  app: adventurerapp
+  # the secure key indicates an encrypted value; see README
+  api_key:
+    secure: vbxDlskWhJpn4vtaV58eMqoPyUe+npt+OjbS3DZEwmPo9YZQjjkzDrMoUZ5VA7Tv4lmq8MM2BYTuXdYSxXjcIFwN+O3u/XHjVgg7CVytrA9RQS89LDA1QEXkLr9V6JHK5WkxXJKpVphx/8VfnZzuxaID/ZAoqkj1VRP/n32S0TcEmHgSlDivCnFTY1NFj2ITFppOnT51iLAKG5tqStDeZJzqGZ/djCWBRfXozOXva3VrznM8k4j2a1RuUDD+moxyTL2jGNQLKvvOvCYistHR0TlYUirtUUAsheckxuxLQEnIhvR+T3SYqM5kpQGZ9yRDaaaE+oxoTmMWnnJTgiq9taWOGwNCHT+9P7yTsZ/UUdbCmTA8pV9jtq71/qWHkmue4xrnpLyHoI/ddsGWEFOQ7m7ZDllP2uXjbpzvM7BMTBuF2cbp4cVQxG99tfhE4RMB3Y6+neq3Ug8hTbTFJLDymgfY0Zn2IgS7jXo0Cpyzcj4tt/QRzrjC6DSbA5YRzuXJ11XAb21I0vMHrYUAOhxV3hbTLNf6qKU4d6ARNreVZuiWa/b+qbqkrze9Ry7zLXPoZLrHIdUYwi4Koou2LDmf34rv6udHF0db3/2w49o+qbpF2wldJfLGrEgFgvt2/AMxs6gQHa2UXbER71gajlulMpM/W5iW7/AOC7UcxDFd3eQ=
