@@ -52,13 +52,13 @@ router.put('/:userId/:locationId', async (req, res, next) => {
   }
 })
 
-router.delete('/:userId/:locationId', async (req, res, next) => {
+router.delete('/:userId', async (req, res, next) => {
   try {
     const userId = req.params.userId
-    const locationId = req.params.locationId
     const currentUser = await User.findByPk(userId)
-    const currentLocation = await Location.findByPk(locationId)
-    await currentUser.removeLocation(currentLocation)
+    const huntLocations = await currentUser.getLocations()
+    await currentUser.removeLocations(huntLocations)
+    currentUser.update({huntId: null})
     res.sendStatus(204)
   } catch (error) {
     next(error)
