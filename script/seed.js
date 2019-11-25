@@ -40,25 +40,25 @@ async function seed() {
   const locations = await Promise.all([
     Location.create({
       latitude: 40.705289,
-      longitude: 74.009205,
+      longitude: -74.009205,
       riddle: 'We go to school here!',
       huntId: 1
     }),
     Location.create({
       latitude: 40.705381,
-      longitude: 74.008427,
+      longitude: -74.008427,
       riddle: 'Have some sushi',
       huntId: 1
     }),
     Location.create({
       latitude: 40.704566,
-      longitude: 74.009894,
+      longitude: -74.009894,
       riddle: 'Get fancy french pastry',
       huntId: 2
     }),
     Location.create({
       latitude: 40.705528,
-      longitude: 74.010095,
+      longitude: -74.010095,
       riddle: 'Go to market',
       huntId: 2
     })
