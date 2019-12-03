@@ -17,6 +17,9 @@ async function seed() {
 
   const hunts = await Promise.all([
     Hunt.create({
+      name: 'Hunt Friends & Family'
+    }),
+    Hunt.create({
       name: 'Hunt Bernie'
     }),
     Hunt.create({
@@ -24,9 +27,6 @@ async function seed() {
     }),
     Hunt.create({
       name: 'Hunt Lower East Side'
-    }),
-    Hunt.create({
-      name: 'Hunt Friends & Family'
     })
   ])
   const users = await Promise.all([
@@ -51,39 +51,39 @@ async function seed() {
       huntId: 1
     }),
     Location.create({
+      latitude: 40.705289,
+      longitude: -74.009205,
+      riddle: 'We go to school here!',
+      huntId: 2
+    }),
+    Location.create({
       latitude: 40.705381,
       longitude: -74.008427,
       riddle: 'Have some sushi',
-      huntId: 1
+      huntId: 2
     }),
     Location.create({
       latitude: 40.704566,
       longitude: -74.009894,
       riddle: 'Get fancy french pastry',
-      huntId: 2
+      huntId: 3
     }),
     Location.create({
       latitude: 40.705528,
       longitude: -74.010095,
       riddle: 'Go to market',
-      huntId: 2
+      huntId: 3
     }),
     Location.create({
       latitude: 40.721333,
       longitude: -73.983853,
       riddle: 'Where the pancakes live',
-      huntId: 3
+      huntId: 4
     }),
     Location.create({
       latitude: 40.722258,
       longitude: -73.983451,
       riddle: 'A place to feed your gum addiction',
-      huntId: 3
-    }),
-    Location.create({
-      latitude: 40.705289,
-      longitude: -74.009205,
-      riddle: 'We go to school here!',
       huntId: 4
     })
   ])
@@ -98,22 +98,22 @@ async function seed() {
     HuntLocation.create({
       visited: false,
       userId: 1,
-      locationId: 1
-    }),
-    HuntLocation.create({
-      visited: false,
-      userId: 1,
       locationId: 2
     }),
     HuntLocation.create({
       visited: false,
-      userId: 2,
+      userId: 1,
       locationId: 3
     }),
     HuntLocation.create({
       visited: false,
       userId: 2,
       locationId: 4
+    }),
+    HuntLocation.create({
+      visited: false,
+      userId: 2,
+      locationId: 5
     })
   ])
   console.log(
