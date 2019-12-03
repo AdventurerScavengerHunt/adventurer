@@ -24,6 +24,9 @@ async function seed() {
     }),
     Hunt.create({
       name: 'Hunt Lower East Side'
+    }),
+    Hunt.create({
+      name: 'Hunt Friends & Family'
     })
   ])
   const users = await Promise.all([
@@ -76,6 +79,12 @@ async function seed() {
       longitude: -73.983451,
       riddle: 'A place to feed your gum addiction',
       huntId: 3
+    }),
+    Location.create({
+      latitude: 40.705289,
+      longitude: -74.009205,
+      riddle: 'We go to school here!',
+      huntId: 4
     })
   ])
   const huntObjects = await Promise.all([
