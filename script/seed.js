@@ -34,13 +34,13 @@ async function seed() {
       email: 'clark@clark.com',
       username: 'clark',
       password: '1234',
-      huntId: 1
+      huntId: 2
     }),
     User.create({
       email: 'bo@bo.com',
       username: 'bo',
       password: '1234',
-      huntId: 2
+      huntId: 3
     })
   ])
   const locations = await Promise.all([
