@@ -17,16 +17,16 @@ async function seed() {
 
   const hunts = await Promise.all([
     Hunt.create({
-      name: 'Hunt Friends & Family'
+      name: 'Friends & Family'
     }),
     Hunt.create({
-      name: 'Hunt Bernie'
+      name: 'Bernie'
     }),
     Hunt.create({
-      name: 'Hunt Treasure'
+      name: 'Treasure'
     }),
     Hunt.create({
-      name: 'Hunt Lower East Side'
+      name: 'Lower East Side'
     })
   ])
   const users = await Promise.all([
