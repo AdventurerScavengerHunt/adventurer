@@ -8,9 +8,9 @@ const User = db.define('user', {
     unique: true,
     allowNull: false,
     validate: {
-      notEmpty: true
-    },
-    isEmail: true
+      notEmpty: true,
+      isEmail: true
+    }
   },
   password: {
     type: Sequelize.STRING,
