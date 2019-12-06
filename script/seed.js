@@ -20,10 +20,10 @@ async function seed() {
       name: 'Friends & Family'
     }),
     Hunt.create({
-      name: 'Bernie'
+      name: 'Financial District'
     }),
     Hunt.create({
-      name: 'Treasure'
+      name: 'Food Treasure'
     }),
     Hunt.create({
       name: 'Lower East Side'
