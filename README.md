@@ -1,8 +1,8 @@
 # AdventurAR
 
-<img src="https://i.imgur.com/O7QcdYA.png" height=500>
-
 AdventurAR is an augmented reality scavenger hunt experience available on Android, that brings exciting new exploration opportunities to daily life.
+
+<img src="https://i.imgur.com/O7QcdYA.png" height=500>
 
 This repo holds the code for the back end, currently deployed to Heroku to serve our client code. The database utilizes Postgres/Sequelize. Our sever routes are built with Express.
 
