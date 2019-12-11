@@ -1,6 +1,6 @@
 # AdventurAR
 
-<img src="https://i.imgur.com/O7QcdYA.png">
+<img src="https://i.imgur.com/O7QcdYA.png" height=500>
 
 AdventurAR is an augmented reality scavenger hunt experience available on Android, that brings exciting new exploration opportunities to daily life.
 
