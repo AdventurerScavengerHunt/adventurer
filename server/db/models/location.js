@@ -8,7 +8,7 @@ const Location = db.define('location', {
   longitude: {
     type: Sequelize.FLOAT(10, 6)
   },
-  riddle: {
+  clue: {
     type: Sequelize.STRING,
     validate: {
       len: [1, 116]

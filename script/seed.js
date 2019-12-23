@@ -58,64 +58,64 @@ async function seed() {
       {
         latitude: 40.705289,
         longitude: -74.009205,
-        riddle:
+        clue:
           'Friends, Fellows, who you may find\nWhere knowledge enters the mind!',
         huntId: 1
       },
       {
         latitude: 40.705289,
         longitude: -74.009205,
-        riddle:
+        clue:
           'Friends, Fellows, who you may find\nWhere knowledge enters the mind!',
         huntId: 2
       },
       {
         latitude: 40.705381,
         longitude: -74.008427,
-        riddle:
+        clue:
           'Fishy, tasty, round a corner\nNew cuisines are always born here!',
         huntId: 2
       },
       {
         latitude: 40.704566,
         longitude: -74.009894,
-        riddle: "Get a fancy french pastry\nDon't have to be too hasty!",
+        clue: "Get a fancy french pastry\nDon't have to be too hasty!",
         huntId: 3
       },
       {
         latitude: 40.705528,
         longitude: -74.010095,
-        riddle: 'Go to market\nStay on Target',
+        clue: 'Go to market\nStay on Target',
         huntId: 3
       },
       {
         latitude: 40.721333,
         longitude: -73.983853,
-        riddle: "Where the pancakes live\nThat belt loop's gotta give",
+        clue: "Where the pancakes live\nThat belt loop's gotta give",
         huntId: 4
       },
       {
         latitude: 40.722258,
         longitude: -73.983451,
-        riddle: 'A place to feed your gum addiction',
+        clue: 'A place to feed your gum addiction',
         huntId: 4
       },
       {
         latitude: 40.853274,
         longitude: -73.935133,
-        riddle: 'Place of learning with sunken grounds',
+        clue: 'Place of learning with sunken grounds',
         huntId: 5
       },
       {
         latitude: 40.853518,
         longitude: -73.934471,
-        riddle: "Homer's favorite food\n'cross from fiery booms",
+        clue: "Homer's favorite food\n'cross from fiery booms",
         huntId: 5
       },
       {
         latitude: 40.629992,
         longitude: -74.022723,
-        riddle: 'Yummy and cheesy\nAnd oh so crispy!',
+        clue: 'Yummy and cheesy\nAnd oh so crispy!',
         huntId: 6
       }
     ])
