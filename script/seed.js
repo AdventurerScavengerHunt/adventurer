@@ -16,105 +16,143 @@ async function seed() {
   console.log('db synced!')
 
   const hunts = await Promise.all([
-    Hunt.create({
-      name: 'Friends & Family'
-    }),
-    Hunt.create({
-      name: 'Financial District'
-    }),
-    Hunt.create({
-      name: 'Food Treasure'
-    }),
-    Hunt.create({
-      name: 'Lower East Side'
-    })
+    Hunt.bulkCreate([
+      {
+        name: 'Friends & Family'
+      },
+      {
+        name: 'Financial District'
+      },
+      {
+        name: 'Food Treasure'
+      },
+      {
+        name: 'Lower East Side'
+      },
+      {
+        name: 'Hudson Heights'
+      },
+      {
+        name: 'Bay Ridge'
+      }
+    ])
   ])
   const users = await Promise.all([
-    User.create({
-      email: 'clark@clark.com',
-      username: 'clark',
-      password: '1234',
-      huntId: 2
-    }),
-    User.create({
-      email: 'bo@bo.com',
-      username: 'bo',
-      password: '1234',
-      huntId: 3
-    })
+    User.bulkCreate([
+      {
+        email: 'clark@clark.com',
+        username: 'clark',
+        password: '1234',
+        huntId: 2
+      },
+      {
+        email: 'bo@bo.com',
+        username: 'bo',
+        password: '1234',
+        huntId: 3
+      }
+    ])
   ])
   const locations = await Promise.all([
-    Location.create({
-      latitude: 40.705289,
-      longitude: -74.009205,
-      riddle: 'We go to school here!',
-      huntId: 1
-    }),
-    Location.create({
-      latitude: 40.705289,
-      longitude: -74.009205,
-      riddle: 'We go to school here!',
-      huntId: 2
-    }),
-    Location.create({
-      latitude: 40.705381,
-      longitude: -74.008427,
-      riddle: 'Have some sushi',
-      huntId: 2
-    }),
-    Location.create({
-      latitude: 40.704566,
-      longitude: -74.009894,
-      riddle: 'Get fancy french pastry',
-      huntId: 3
-    }),
-    Location.create({
-      latitude: 40.705528,
-      longitude: -74.010095,
-      riddle: 'Go to market',
-      huntId: 3
-    }),
-    Location.create({
-      latitude: 40.721333,
-      longitude: -73.983853,
-      riddle: 'Where the pancakes live',
-      huntId: 4
-    }),
-    Location.create({
-      latitude: 40.722258,
-      longitude: -73.983451,
-      riddle: 'A place to feed your gum addiction',
-      huntId: 4
-    })
+    Location.bulkCreate([
+      {
+        latitude: 40.705289,
+        longitude: -74.009205,
+        clue:
+          'Friends, Fellows, who you may find\nWhere knowledge enters the mind!',
+        huntId: 1
+      },
+      {
+        latitude: 40.705289,
+        longitude: -74.009205,
+        clue:
+          'Friends, Fellows, who you may find\nWhere knowledge enters the mind!',
+        huntId: 2
+      },
+      {
+        latitude: 40.705381,
+        longitude: -74.008427,
+        clue:
+          'Fishy, tasty, round a corner\nNew cuisines are always born here!',
+        huntId: 2
+      },
+      {
+        latitude: 40.704566,
+        longitude: -74.009894,
+        clue: "Get a fancy french pastry\nDon't have to be too hasty!",
+        huntId: 3
+      },
+      {
+        latitude: 40.705528,
+        longitude: -74.010095,
+        clue: 'Go to market\nStay on Target',
+        huntId: 3
+      },
+      {
+        latitude: 40.721333,
+        longitude: -73.983853,
+        clue: "Where the pancakes live\nThat belt loop's gotta give",
+        huntId: 4
+      },
+      {
+        latitude: 40.722258,
+        longitude: -73.983451,
+        clue: 'A place to feed your gum addiction',
+        huntId: 4
+      },
+      {
+        latitude: 40.853274,
+        longitude: -73.935133,
+        clue: 'Place of learning with sunken grounds',
+        huntId: 5
+      },
+      {
+        latitude: 40.853518,
+        longitude: -73.934471,
+        clue: "Homer's favorite food\n'cross from fiery booms",
+        huntId: 5
+      },
+      {
+        latitude: 40.629992,
+        longitude: -74.022723,
+        clue: 'Yummy and cheesy\nAnd oh so crispy!',
+        huntId: 6
+      }
+    ])
   ])
   const huntObjects = await Promise.all([
-    HuntObject.create({
-      name: 'Bernie head',
-      source: 'http://www.gstatic.com/tv/thumb/persons/547987/547987_v9_ba.jpg'
-    })
+    HuntObject.bulkCreate([
+      {
+        name: 'Bernie head',
+        source:
+          'http://www.gstatic.com/tv/thumb/persons/547987/547987_v9_ba.jpg'
+      }
+    ])
   ])
 
   const huntLocations = await Promise.all([
-    HuntLocation.create({
-      visited: false,
-      userId: 1,
-      locationId: 2
-    }),
-    HuntLocation.create({
-      visited: false,
-      userId: 1,
-      locationId: 3
-    }),
-    HuntLocation.create({
-      visited: false,
-      userId: 2,
-      locationId: 4
-    }),
-    HuntLocation.create({
-      visited: false,
-      userId: 2,
-      locationId: 5
-    })
+    HuntLocation.bulkCreate([
+      {
+        visited: false,
+        userId: 1,
+        locationId: 2
+      },
+      {
+        visited: false,
+        userId: 1,
+        locationId: 3
+      },
+      {
+        visited: false,
+        userId: 2,
+        locationId: 4
+      },
+      {
+        visited: false,
+        userId: 2,
+        locationId: 5
+      }
+    ])
   ])
   console.log(
     `seeded ${users.length} users, ${locations.length} locations, ${
